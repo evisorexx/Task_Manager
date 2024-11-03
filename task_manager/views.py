@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import View
 
 
-def index(request):
-    return render(request, 'index.html')
+class HomeView(View):
+    pass

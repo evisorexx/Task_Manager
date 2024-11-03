@@ -1,19 +1,29 @@
+{% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Task Manager</title>
-    {% load static %}
-    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{% static 'headers.css' %}" rel="stylesheet">
-    {% load bootstrap4 %}
+    {% load django_bootstrap5 %}
     {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <link href="{% static 'css/header.css' %}" rel="stylesheet">
   </head>
+  
+  {% include "navbar.html" %}
 
-  <body class="d-flex flex-column min-vh-100">       
+  <body class="d-flex flex-column min-vh-100">
+    <div class="container">
+      {% if messages %}
+        {% bootstrap_messages %}
+      {% endif %}
+          
       {% block content %}
+
       {% endblock %}
+    </div>
+    <p> </p>
   </body>
 </html>
