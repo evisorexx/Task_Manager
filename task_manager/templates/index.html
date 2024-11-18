@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
-<h1> Hello! </h1>
+    <h1> {% trans 'Task Manager' %} </h1>
+    <h2> {% trans 'Try it for free!' %} </h2>
 {% endblock %}

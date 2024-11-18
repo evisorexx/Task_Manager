@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 01:30+0300\n"
+"POT-Creation-Date: 2024-11-18 19:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,113 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: task_manager/templates/navbar.html:14
+
+#: task_manager/templates/index.html:5 task_manager/templates/navbar.html:16
+#: task_manager/templates/navbar.html:53
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/navbar.html:23
+#: task_manager/templates/index.html:6
+msgid "Try it for free!"
+msgstr "Попробуйте бесплатно!"
+
+#: task_manager/templates/login.html:8
+msgid "Your username or password did not match. Please try again."
+msgstr "Введены неправильные имя пользователя или пароль. Попробуйте еще раз."
+
+#: task_manager/templates/login.html:23
+msgid "Log in"
+msgstr "Вход"
+
+#: task_manager/templates/login.html:27
+msgid "Not a member?"
+msgstr "Не зарегистрированы?"
+
+#: task_manager/templates/login.html:27 task_manager/templates/trashcan.html:26
+#: task_manager/templates/users/create.html:13
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: task_manager/templates/logout.html:7 task_manager/templates/navbar.html:36
+msgid "Logout"
+msgstr "Выход"
+
+#: task_manager/templates/navbar.html:25 task_manager/templates/navbar.html:62
 msgid "Users"
 msgstr "Пользователи"
+
+#: task_manager/templates/navbar.html:72
+msgid "Sign In"
+msgstr "Войти"
+
+#: task_manager/templates/navbar.html:75
+msgid "Sign Up"
+msgstr "Зарегистрироваться"
+
+#: task_manager/templates/users/create.html:8
+#: task_manager/templates/users/update.html:8
+msgid "Registration"
+msgstr "Регистрация"
+
+#: task_manager/templates/users/list.html:11
+#, fuzzy
+#| msgid "Users"
+msgid "Username"
+msgstr "Пользователь"
+
+#: task_manager/templates/users/list.html:12
+msgid "Fullname"
+msgstr "Полное имя"
+
+#: task_manager/templates/users/list.html:13
+msgid "Created"
+msgstr "Создан"
+
+#: task_manager/templates/users/list.html:14
+msgid "Action"
+msgstr "Действие"
+
+#: task_manager/templates/users/list.html:26
+msgid "Edit"
+msgstr "Изменить"
+
+#: task_manager/templates/users/list.html:27
+msgid "Delete"
+msgstr "Удалить"
+
+#: task_manager/templates/users/update.html:13
+msgid "Update"
+msgstr "Обновить"
+
+#: task_manager/templates/users/user_confirm_delete.html:6
+msgid "Deleting a user"
+msgstr "Удаление пользователя"
+
+#: task_manager/templates/users/user_confirm_delete.html:11
+msgid "Yes"
+msgstr "Да"
+
+#: task_manager/users/views.py:22
+msgid "User registered successfully!"
+msgstr "ПользователЬ успешно зарегистрирован!"
+
+#: task_manager/users/views.py:30
+#, fuzzy
+#| msgid "User deleted successfully!"
+msgid "User updated successfully!"
+msgstr "ПользователЬ успешно удален!"
+
+#: task_manager/users/views.py:35
+msgid "User deleted successfully!"
+msgstr "ПользователЬ успешно удален!"
+
+#: task_manager/views.py:14
+msgid "You are logged in!"
+msgstr "Вход выполнен!"
+
+#: task_manager/views.py:22
+msgid "You are logged out!"
+msgstr "Выход выполнен!"
+
+#~ msgid "Username is necessary!"
+#~ msgstr "Имя пользователя обязательно!"

@@ -11,12 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
 import dj_database_url
 import os
+from dotenv import dotenv_values
 
 
-load_dotenv()
+local_config = {
+    **dotenv_values('.env'),
+    **os.environ,  # override loaded values with environment variables
+}
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = local_config.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,6 +42,8 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
+LOGIN_REDIRECT_URL = 'users_list'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Application definition
 
@@ -49,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+    'task_manager.users',
     'task_manager',
 ]
 
@@ -62,6 +69,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware'
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 ROOT_URLCONF = 'task_manager.urls'
 
@@ -87,11 +96,20 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config()}
+if local_config.get('ENVIRON', None) == 'dev':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+if local_config.get('ENVIRON', None) == 'prod':
+    DATABASES = {'default': dj_database_url.config()}
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,6 +141,10 @@ USE_TZ = True
 LANGUAGES = [
     ('en', 'English'),
     ('ru', 'Russian')
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
 ]
 
 

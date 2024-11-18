@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+  <h1 class="my-4">{% translate 'Registration' %}</h1>
+
+  <form action="{% url 'users_update' user.id %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit" value="{% translate 'Update' %}">  
+  </form>
+
+{% endblock %}
