@@ -23,3 +23,8 @@ tests:
 
 start:
 	poetry run gunicorn --bind 0.0.0.0:$(PORT) task_manager.wsgi
+
+deploy:
+	poetry run python3 manage.py makemigrations
+	poetry run python3 manage.py migrate
+	poetry run gunicorn --bind 0.0.0.0:$(PORT) task_manager.wsgi
