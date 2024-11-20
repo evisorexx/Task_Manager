@@ -41,9 +41,9 @@ ALLOWED_HOSTS = [
     'python-project-52-a18a.onrender.com',
     'localhost',
 ]
-
-LOGIN_REDIRECT_URL = 'users_list'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/users/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+    'task_manager.statuses',
     'task_manager.users',
     'task_manager',
 ]

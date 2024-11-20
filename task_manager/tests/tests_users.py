@@ -20,7 +20,7 @@ class CRUDTestsForUser(TestCase):
             password='tineproidesh'
         )
 
-    # For Creation
+    # For CREATION
     def test_SignUp(self):
         resp = self.client.get(reverse('users_create'))
         self.assertEqual(resp.status_code, 200)
@@ -52,21 +52,22 @@ class CRUDTestsForUser(TestCase):
         resp = self.client.get(reverse('users_list'))
         self.assertTrue(len(resp.context['users']) == 2)
 
-    # For Update
+    # For UPDATE
     def test_UpdateUser(self):
         user = User.objects.get(id=1)
         resp = self.client.get(
             reverse('users_update', kwargs={'pk': user.id})
         )
         self.assertEqual(resp.status_code, 302)
-        self.assertRedirects(resp, reverse('users_list'))
+        self.assertRedirects(resp, reverse('login'))
 
         self.client.force_login(user)
+
         resp = self.client.get(
             reverse('users_update', kwargs={'pk': user.id})
         )
         self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, template_name='users/create.html')
+        self.assertTemplateUsed(resp, template_name='users/update.html')
         resp = self.client.post(
             reverse('users_update', kwargs={'pk': user.id}),
             {
@@ -83,19 +84,20 @@ class CRUDTestsForUser(TestCase):
 
     # For DELETE
     def test_DeleteUser(self):
-        user = User.objects.get(username='evisorex')
+        user = User.objects.get(username='evisorexx')
         resp = self.client.get(reverse('users_delete', kwargs={'pk': user.id}))
         
         self.assertEqual(resp.status_code, 302)
         self.assertRedirects(resp, reverse('login'))
         
         self.client.force_login(user)
+
         resp = self.client.get(reverse('users_delete', kwargs={'pk': user.id}))
         self.assertEqual(resp.status_code, 200)
 
         resp = self.client.post(
             reverse('users_delete', kwargs={'pk': user.id})
         )
-        self.assertRedirects(resp, reverse('users_list'))
+        self.assertRedirects(resp, expected_url=reverse('users_list'))
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(User.objects.count(), 1)
