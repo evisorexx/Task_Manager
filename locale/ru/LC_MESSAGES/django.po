@@ -157,7 +157,7 @@ msgstr "Удаление метки"
 #: task_manager/templates/tasks/delete.html:11
 #: task_manager/templates/users/delete.html:11
 msgid "Yes"
-msgstr "Да"
+msgstr "Да, удалить"
 
 #: task_manager/templates/labels/list.html:8
 msgid "Add label"
