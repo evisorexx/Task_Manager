@@ -36,8 +36,15 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'webserver',
     '127.0.0.1',
+    '0.0.0.0',
     'python-project-52-a18a.onrender.com',
     'localhost',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com',
+    'https://127.0.0.1',
+    'https://localhost',
 ]
 
 LOGIN_URL = '/login/'
