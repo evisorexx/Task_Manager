@@ -221,7 +221,7 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 
 #: task_manager/templates/login.html:29
 msgid "Log in"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/login.html:33
 msgid "Not a member?"
