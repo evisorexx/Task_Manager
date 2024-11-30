@@ -86,10 +86,10 @@ class CRUDTestsForUser(TestCase):
     def test_DeleteUser(self):
         user = User.objects.get(username='evisorexx')
         resp = self.client.get(reverse('users_delete', kwargs={'pk': user.id}))
-        
+
         self.assertEqual(resp.status_code, 302)
         self.assertRedirects(resp, reverse('login'))
-        
+
         self.client.force_login(user)
 
         resp = self.client.get(reverse('users_delete', kwargs={'pk': user.id}))

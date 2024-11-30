@@ -4,6 +4,22 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from .models import Status
+from django.db.models import ProtectedError
+from django.contrib import messages
+from django.shortcuts import redirect
+
+
+def handle_protected_error(func):
+    def wrapper(self, request, *args, **kwargs):
+        try:
+            return func(self, request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(
+                request,
+                _("Can't delete this status, it is attached to task.")
+            )
+            return redirect(reverse_lazy('statuses_list'))
+    return wrapper
 
 
 class BaseStatus(SuccessMessageMixin, LoginRequiredMixin):
@@ -19,15 +35,24 @@ class StatusListView(BaseStatus, ListView):
 
 
 class StatusCreateView(BaseStatus, CreateView):
-    success_message = _("Status successfully created!")
     template_name = 'statuses/create.html'
+    success_message = _("Status successfully created!")
 
 
 class StatusUpdateView(BaseStatus, UpdateView):
-    success_message = _("Status successfully updated!")
     template_name = 'statuses/update.html'
+    success_message = _("Status successfully updated!")
 
 
 class StatusDeleteView(BaseStatus, DeleteView):
-    success_message = _("Status successfully deleted!")
     template_name = 'statuses/delete.html'
+    success_message = _("Status successfully deleted!")
+
+    @handle_protected_error
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)

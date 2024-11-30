@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = local_config.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if local_config.get('ENVIRON') == 'dev' else False
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -41,6 +41,7 @@ ALLOWED_HOSTS = [
     'python-project-52-a18a.onrender.com',
     'localhost',
 ]
+
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/users/'
 LOGOUT_REDIRECT_URL = '/'
@@ -57,7 +58,10 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'task_manager.statuses',
     'task_manager.users',
+    'task_manager.tasks',
+    'task_manager.labels',
     'task_manager',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware'
+    'django.middleware.locale.LocaleMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -233,4 +238,12 @@ BOOTSTRAP5 = {
     'field_renderers': {
         'default': 'django_bootstrap5.renderers.FieldRenderer',
     },
+}
+
+# Rollbar
+ROLLBAR = {
+    'access_token': local_config.get('ROLLBAR'),
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
 }

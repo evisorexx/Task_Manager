@@ -18,6 +18,9 @@ lint:
 dotr:
 	django-admin makemessages --ignore="static" --ignore=".env"  -l ru
 
+savetr:
+	django-admin compilemessages
+
 tests:
 	poetry run python3 manage.py test
 

@@ -2,11 +2,11 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.translation import gettext_lazy as _
 from .models import User
 from .forms import NewUserForm, UpdateUserForm
+
 
 class PermMixin:
     def has_permission(self):
@@ -17,12 +17,13 @@ class PermMixin:
         if not request.user.is_authenticated:
             messages.error(request, _('You are not authorized!'))
             return redirect('login')
-        
+
         if not self.has_permission():
             messages.error(request, _('You do not have permission to do this.'))
             return redirect('users_list')
-        
+
         return super().dispatch(request, *args, **kwargs)
+
 
 class UserListView(ListView):
     model = User

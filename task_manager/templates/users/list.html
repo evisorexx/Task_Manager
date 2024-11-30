@@ -20,7 +20,7 @@
                 <td>{{ u.id }}</td>
                 <td>{{ u.username }}</td>
                 <td>{{ u.get_full_name }}</td>
-                <td>{{ u.date_joined|date:"d.m.Y" }}</td>
+                <td>{{ u.date_joined|date:'d-m-Y H:i' }}</td>
                 <td>
                     {% if u == user %}
                     <a href="{{ u.id }}/update">

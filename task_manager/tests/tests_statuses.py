@@ -39,7 +39,7 @@ class CRUDTestsForStatuses(TestCase):
         resp4 = self.client.get(reverse('status_delete', kwargs={'pk': 1}))
         self.assertEqual(resp4.status_code, 200)
 
-    # CREATE - Создание нового статуса
+    # For CREATE
     def test_CreateStatus(self):
         self.client.force_login(self.user)
 
@@ -50,23 +50,23 @@ class CRUDTestsForStatuses(TestCase):
         resp = self.client.get(reverse('statuses_list'))
         self.assertTrue(len(resp.context['statuses']) == 4)
 
-    # READ - список всех статусов
+    # For READ
     def test_ListStatus(self):
         self.client.force_login(self.user)
         resp = self.client.get(reverse('statuses_list'))
         self.assertTrue(len(resp.context['statuses']) == 3)
 
-    # UPDATE - обновление статуса
+    # For UPDATE
     def test_UpdateStatus(self):
         self.client.force_login(self.user)
-        s1 = Status.objects.get(pk=1)
+        status1 = Status.objects.get(pk=1)
         resp = self.client.post(reverse('status_update', kwargs={'pk': 1}),
                                 {'name': 'Updated Status'})
         self.assertEqual(resp.status_code, 302)
-        s1.refresh_from_db()
-        self.assertEqual(s1.name, 'Updated Status')
+        status1.refresh_from_db()
+        self.assertEqual(status1.name, 'Updated Status')
 
-    # DELETE - удаление статуса
+    # For DELETE
     def test_DeleteStatus(self):
         self.client.force_login(self.user)
         self.assertEqual(Status.objects.count(), 3)

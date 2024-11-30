@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ s.id }}</td>
                 <td>{{ s.name }}</td>
-                <td>{{ s.created_at|date:"d.m.Y" }}</td>
+                <td>{{ s.created_at|date:'d-m-Y H:i' }}</td>
                 <td>
                     <a href="{% url 'status_update' s.id %}">
                         <input class="btn btn-warning btn-sm" type="submit" value="{% trans 'Update' %}">

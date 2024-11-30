@@ -14,6 +14,8 @@ psycopg2-binary = "^2.9.10"
 django-bootstrap5 = "^24.3"
 flake8 = "^7.1.1"
 gunicorn = "^23.0.0"
+django-filter = "^24.3"
+rollbar = "^1.1.0"
 
 
 [build-system]

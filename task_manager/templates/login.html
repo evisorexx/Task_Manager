@@ -5,15 +5,21 @@
 {% block content %}
 
 {% if form.errors %}
-  <p>{% trans 'Your username or password did not match. Please try again.' %}</p>
+  <div class="alert alert-warning" role="alert">
+    {% trans 'Your username or password did not match. Please try again.' %}
+  </div>
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+    <div class="alert alert-warning" role="alert">
+      {% trans 'Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.' %}
+    </div>
     {% else %}
-    <p>Please login to see this page.</p>
+    <div class="alert alert-warning" role="alert">
+      {% trans 'Please login to see this page.' %}
+    </div>
     {% endif %}
 {% endif %}
 
