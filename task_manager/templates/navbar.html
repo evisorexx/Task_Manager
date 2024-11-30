@@ -3,6 +3,7 @@
 {% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% if user.is_authenticated %}
 <div class="b-example-divider"></div>
@@ -102,7 +103,7 @@
             <button type="button" class="btn btn-outline-primary me-2">{% trans 'Sign In' %}</button>
           </a>
           <a class="nav-link" href="{% url 'users_create' %}">
-            <button type="button" class="btn btn-outline-primary me-2">{% trans 'Sign Up' %}</a></button>
+            <button type="button" class="btn btn-outline-primary me-2">{% trans 'Sign Up' %}</button>
           </a>
         </div>
       </div>

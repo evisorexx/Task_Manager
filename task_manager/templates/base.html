@@ -3,12 +3,16 @@
 {% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% get_current_language as LANGUAGE_CODE %}
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>{% trans 'Task Manager' %}</title>
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'headers.css' %}" rel="stylesheet">
   </head>
   
   {% include "navbar.html" %}
