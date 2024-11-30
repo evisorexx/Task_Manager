@@ -1,15 +1,12 @@
 {% load static %}
 {% load i18n %}
 {% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>{% trans 'Task Manager' %}</title>
-    <link href="{% static 'css/header.css' %}" rel="stylesheet">
   </head>
   
   {% include "navbar.html" %}
