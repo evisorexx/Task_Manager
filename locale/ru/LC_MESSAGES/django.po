@@ -34,7 +34,7 @@ msgstr "Метка успешно создана"
 
 #: task_manager/labels/views.py:44
 msgid "Label successfully updated!"
-msgstr "Метка успешно обновлена"
+msgstr "Метка успешно изменена"
 
 #: task_manager/labels/views.py:49
 msgid "Label successfully deleted!"
@@ -103,7 +103,7 @@ msgstr "Задача успешно создана"
 
 #: task_manager/tasks/views.py:44
 msgid "Task successfully updated!"
-msgstr "Задача успешно обновлена"
+msgstr "Задача успешно изменена"
 
 #: task_manager/tasks/views.py:49
 msgid "Task successfully deleted!"
@@ -115,7 +115,7 @@ msgstr "Вы не авторизованы"
 
 #: task_manager/tasks/views.py:63
 msgid "Only authors can delete their own tasks."
-msgstr "Задачу может удалить только ее автор."
+msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/templates/404.html:7
 msgid "Page not found"
@@ -199,7 +199,7 @@ msgstr "Удалить"
 
 #: task_manager/templates/labels/update.html:7
 msgid "Updating label"
-msgstr "Обновление метки"
+msgstr "Изменение метки"
 
 #: task_manager/templates/labels/update.html:12
 #: task_manager/templates/statuses/list.html:28
@@ -273,7 +273,7 @@ msgstr "Создать статус"
 
 #: task_manager/templates/statuses/update.html:7
 msgid "Updating status"
-msgstr "Обновление статуса"
+msgstr "Изменение статуса"
 
 #: task_manager/templates/tasks/create.html:7
 msgid "Creating task"
@@ -301,7 +301,7 @@ msgstr "Показать"
 
 #: task_manager/templates/tasks/update.html:7
 msgid "Updating task"
-msgstr "Обновление задачи"
+msgstr "Изменение задачи"
 
 #: task_manager/templates/users/create.html:8
 #: task_manager/templates/users/update.html:7
@@ -338,7 +338,7 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:47
 msgid "User updated successfully!"
-msgstr "Пользователь успешно обновлен"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:53
 msgid "User deleted successfully!"
