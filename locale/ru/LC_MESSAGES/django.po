@@ -230,7 +230,7 @@ msgstr "Не зарегистрированы?"
 #: task_manager/templates/login.html:33
 #: task_manager/templates/users/create.html:13
 msgid "Register"
-msgstr "Зарегистрироваться"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/logout.html:7 task_manager/templates/navbar.html:63
 msgid "Logout"
