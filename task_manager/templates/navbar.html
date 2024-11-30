@@ -1,6 +1,8 @@
 {% load i18n %}
 {% block navbar %}
 {% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 {% if user.is_authenticated %}
 <div class="b-example-divider"></div>
@@ -96,10 +98,10 @@
       </div>
       <div class="px-3 py-2 border-bottom mb-2">
         <div class="container d-flex flex-wrap justify-content-end">
-          <a href="{% url 'login' %}">
+          <a class="nav-link" href="{% url 'login' %}">
             <button type="button" class="btn btn-outline-primary me-2">{% trans 'Sign In' %}</button>
           </a>
-          <a href="{% url 'users_create' %}">
+          <a class="nav-link" href="{% url 'users_create' %}">
             <button type="button" class="btn btn-outline-primary me-2">{% trans 'Sign Up' %}</a></button>
           </a>
         </div>
