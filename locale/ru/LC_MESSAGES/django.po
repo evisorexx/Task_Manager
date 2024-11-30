@@ -253,7 +253,7 @@ msgstr "Задачи"
 
 #: task_manager/templates/navbar.html:99
 msgid "Sign In"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/templates/navbar.html:102
 msgid "Sign Up"
