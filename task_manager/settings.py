@@ -114,9 +114,8 @@ DATABASES = {
     }
 }
 
-if os.getenv('DATABASE_URL'):
-    db = dj_database_url.config(conn_max_age=600)
-    DATABASES['default'].update(db)
+db = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -124,16 +123,10 @@ if os.getenv('DATABASE_URL'):
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'OPTIONS': {
+            'min_length': 3,
+        }
     },
 ]
 
