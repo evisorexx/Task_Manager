@@ -240,7 +240,7 @@ BOOTSTRAP5 = {
 
 # Rollbar
 ROLLBAR = {
-    'access_token': local_config.get('ROLLBAR'),
+    'access_token': os.getenv('ROLLBAR'),
     'environment': 'development' if DEBUG else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
