@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = local_config.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if local_config.get('ENVIRON') == 'dev' else False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'webserver',
