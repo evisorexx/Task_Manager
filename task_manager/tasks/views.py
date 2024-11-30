@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django_filters.views import FilterView

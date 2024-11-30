@@ -18,7 +18,7 @@ class Task(models.Model):
         User, on_delete=models.PROTECT, related_name='executor',
         verbose_name=_('Executor'),
     )
-    status = models.ForeignKey(Status, 
+    status = models.ForeignKey(Status,
                                on_delete=models.PROTECT, null=True,
                                verbose_name=_('Status'))
     labels = models.ManyToManyField(
@@ -37,4 +37,3 @@ class Task(models.Model):
 class TasksToLabels(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     label = models.ForeignKey(Label, on_delete=models.PROTECT)
-
