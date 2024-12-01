@@ -330,7 +330,7 @@ msgstr "Вы не авторизованы"
 
 #: task_manager/users/views.py:22
 msgid "You do not have permission to do this."
-msgstr "У Вас нет разрешения на это действие."
+msgstr "У вас нет прав для изменения другого пользователя."
 
 #: task_manager/users/views.py:39
 msgid "User registered successfully!"

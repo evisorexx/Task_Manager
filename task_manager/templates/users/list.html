@@ -22,18 +22,16 @@
                 <td>{{ u.get_full_name }}</td>
                 <td>{{ u.date_joined|date:'d-m-Y H:i' }}</td>
                 <td>
-                    {% if u == user %}
                     <a href="{{ u.id }}/update">
                         <input class="btn btn-warning btn-sm" type="submit" value="{% trans 'Update' %}"> 
                     </a>
-                    
                     <a href="{{ u.id }}/delete">
                         <input class="btn btn-danger btn-sm" type="submit" value="{% trans 'Delete' %}">
                     </a>
-                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 {% endblock %}
+
