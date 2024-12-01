@@ -57,7 +57,7 @@ class DeleteTaskView(BaseTask, DeleteView):
             messages.error(request, _('You are not authenticated.'))
             return self.handle_no_permission()
 
-        elif self.has_permission():
+        elif not self.has_permission():
             messages.error(
                 request,
                 _("Only authors can delete their own tasks.")
