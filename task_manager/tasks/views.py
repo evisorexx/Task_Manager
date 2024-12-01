@@ -50,7 +50,7 @@ class DeleteTaskView(BaseTask, DeleteView):
 
     def has_permission(self):
         obj = self.get_object()
-        return obj is not None and obj.pk == self.request.user.pk
+        return obj is not None and obj.author == self.request.user
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
