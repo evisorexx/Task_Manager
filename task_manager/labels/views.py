@@ -1,12 +1,14 @@
-from .models import Label
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
-from django.contrib.messages.views import SuccessMessageMixin
+# Django imports
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.db.models import ProtectedError
-from django.contrib import messages
-from django.shortcuts import redirect
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+# Local imports
+from .models import Label
 
 
 def handle_protected_error(func):

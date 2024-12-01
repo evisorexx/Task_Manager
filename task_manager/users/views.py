@@ -1,11 +1,12 @@
-from django.urls import reverse_lazy
 from django.contrib import messages
-from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from .models import User
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+
 from .forms import NewUserForm, UpdateUserForm
+from .models import User
 
 
 class PermMixin:

@@ -1,13 +1,14 @@
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django_filters.views import FilterView
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.contrib import messages
-from django.shortcuts import redirect
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django_filters.views import FilterView
-from .models import Task
+
 from .filter import TaskFilter
+from .models import Task
 
 
 class BaseTask(LoginRequiredMixin, SuccessMessageMixin):
