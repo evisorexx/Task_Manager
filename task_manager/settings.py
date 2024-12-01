@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
-import dj_database_url
 import os
-from dotenv import load_dotenv
+from pathlib import Path
 
+import dj_database_url
+from dotenv import load_dotenv
 
 env_path = os.path.join('.', '.env')
 load_dotenv(dotenv_path=env_path)

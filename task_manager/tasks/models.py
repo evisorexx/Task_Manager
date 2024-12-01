@@ -7,7 +7,9 @@ from task_manager.users.models import User
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=255, unique=True, verbose_name=_('Task name'))
+    name = models.CharField(max_length=255, unique=True,
+                            verbose_name=_('Task name')
+                            )
     description = models.TextField(max_length=1000, blank=True,
                                    verbose_name=_('Description')
                                    )
