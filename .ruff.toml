@@ -6,4 +6,7 @@ line-length = 80
 [lint]
 preview = true
 select = ["E", "F", "I", "C90"]
-exclude = ["**migrations/**"]
+exclude = [
+    "**migrations/**",
+    "settings.py"
+]
