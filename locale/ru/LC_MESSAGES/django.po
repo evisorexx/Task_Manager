@@ -293,7 +293,7 @@ msgstr "Задача без меток"
 
 #: task_manager/templates/tasks/list.html:8
 msgid "Add task"
-msgstr "Добавить задачу"
+msgstr "Создать задачу"
 
 #: task_manager/templates/tasks/list.html:17
 msgid "Show"
