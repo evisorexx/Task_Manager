@@ -140,7 +140,7 @@ msgstr "Добро пожаловать в Менеджер задач!"
 
 #: task_manager/templates/labels/create.html:7
 msgid "Creating label"
-msgstr "Создание метки"
+msgstr "Создать метку"
 
 #: task_manager/templates/labels/create.html:12
 #: task_manager/templates/statuses/create.html:12
@@ -261,7 +261,7 @@ msgstr "Регистрация"
 
 #: task_manager/templates/statuses/create.html:7
 msgid "Creating status"
-msgstr "Создание статуса"
+msgstr "Создать статус"
 
 #: task_manager/templates/statuses/delete.html:6
 msgid "Deleting status"
@@ -277,7 +277,7 @@ msgstr "Изменение статуса"
 
 #: task_manager/templates/tasks/create.html:7
 msgid "Creating task"
-msgstr "Создание задачи"
+msgstr "Создать задачу"
 
 #: task_manager/templates/tasks/delete.html:6
 msgid "Deleting task"
