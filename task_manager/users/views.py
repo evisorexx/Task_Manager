@@ -1,29 +1,11 @@
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from .forms import NewUserForm, UpdateUserForm
+from .mixins import PermissionMixin
 from .models import User
-
-
-class PermMixin:
-    def has_permission(self):
-        obj = self.get_object()
-        return obj is not None and obj.pk == self.request.user.pk
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            messages.error(request, _('You are not authorized!'))
-            return redirect('login')
-
-        if not self.has_permission():
-            messages.error(request, _('You do not have permission to do this.'))
-            return redirect('users_list')
-
-        return super().dispatch(request, *args, **kwargs)
 
 
 class UserListView(ListView):
@@ -40,7 +22,7 @@ class UserCreationView(SuccessMessageMixin, CreateView):
     success_message = _('User registered successfully!')
 
 
-class UserUpdateView(PermMixin, SuccessMessageMixin, UpdateView):
+class UserUpdateView(PermissionMixin, SuccessMessageMixin, UpdateView):
     model = User
     form_class = UpdateUserForm
     template_name = 'users/update.html'
@@ -48,7 +30,7 @@ class UserUpdateView(PermMixin, SuccessMessageMixin, UpdateView):
     success_message = _('User updated successfully!')
 
 
-class UserDeleteView(PermMixin, SuccessMessageMixin, DeleteView):
+class UserDeleteView(PermissionMixin, SuccessMessageMixin, DeleteView):
     model = User
     template_name = 'users/delete.html'
     success_message = _('User deleted successfully!')
