@@ -33,7 +33,7 @@ class UpdateTaskView(TaskMixin, UpdateView):
     success_message = _('Task successfully updated!')
 
 
-class DeleteTaskView(TaskMixin, DeleteView, PermissionMixin):
+class DeleteTaskView(TaskMixin, PermissionMixin, DeleteView):
     template_name = 'tasks/delete.html'
     success_message = _('Task successfully deleted!')
 
